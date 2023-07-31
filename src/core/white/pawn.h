@@ -9,11 +9,11 @@ class Pawn_Piece : public Piece {
 private:
 public:
   Pawn_Piece() {
-    for (int i=0;i<8;i++) {
+    for (int i = 0; i < 8; i++) {
       row.push_back(6);
       col.push_back(i);
-      y.push_back(row[i]*UNIT);
-      x.push_back(col[i]*UNIT);
+      y.push_back(row[i] * UNIT);
+      x.push_back(col[i] * UNIT);
       alive.push_back(1);
     }
     movelist.resize(8);

@@ -1,6 +1,8 @@
 #ifndef CORE_WHITE__H
 #define CORE_WHITE__H
 
+#include <string>
+
 namespace white {
 extern std::vector<std::vector<int>> blocks;
 extern int num_queens;

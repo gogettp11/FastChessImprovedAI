@@ -32,7 +32,7 @@
 
 #define X_RES 600
 #define Y_RES 600
-#define UNIT (X_RES/8)
+#define UNIT (X_RES / 8)
 
 // DEBUGAI log file
 extern std::ofstream log;

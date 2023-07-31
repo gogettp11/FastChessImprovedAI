@@ -11,6 +11,7 @@ private:
   std::string get_pinned_piece(int i);
   int num_pieces(int i);
   bool king_in_path(int i);
+
 public:
   std::vector<bool> moved;
   Rook_Piece() {
@@ -19,8 +20,8 @@ public:
     movelist.resize(2);
     row = {0, 0};
     col = {0, 7};
-    y = {row[0]*UNIT, row[1]*UNIT};
-    x = {col[0]*UNIT, col[1]*UNIT};
+    y = {row[0] * UNIT, row[1] * UNIT};
+    x = {col[0] * UNIT, col[1] * UNIT};
     protecting_movelist.resize(2);
   };
   void check_pin();

@@ -1,7 +1,7 @@
 #ifndef AI_BLACK_EVAL_H
 #define AI_BLACK_EVAL_H
 
-namespace black { 
+namespace black {
 namespace eval {
 double mobility();
 double pawn_promote();

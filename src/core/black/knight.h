@@ -14,8 +14,8 @@ public:
     protecting_movelist.resize(2);
     row = {0, 0};
     col = {1, 6};
-    y = {row[0]*UNIT, row[1]*UNIT};
-    x = {col[0]*UNIT, col[1]*UNIT};
+    y = {row[0] * UNIT, row[1] * UNIT};
+    x = {col[0] * UNIT, col[1] * UNIT};
   };
   void move(int i, int row_, int col_);
   void pure_move(int i, int row_, int col_);

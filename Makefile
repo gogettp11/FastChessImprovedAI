@@ -8,8 +8,9 @@ SOURCE+= src/core/white/bishop.cc src/core/white/knight.cc src/core/white/pawn.c
 SOURCE+= src/core/white/king.cc src/core/white/queen.cc src/core/white/rook.cc src/queue.cc
 SOURCE+= src/media/sound.cc src/media/text.cc src/ai/helper.cc src/ai/black/search.cc src/ai/env.cc
 SOURCE+= src/ai/black/eval.cc src/ai/white/eval.cc
+SOURCE+= src/player/event_processor.cc
 
-CC= g++ -std=c++2a
+CC= clang++ -std=c++2a
 
 EXECUTABLE= FastChess
 

@@ -8,6 +8,7 @@ private:
   std::vector<int> color;
   sf::Font font;
   sf::Text text;
+
 public:
   Game_Text() {
     color = {45, 16, 4};

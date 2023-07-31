@@ -1,6 +1,10 @@
 #ifndef CORE_BLACK__H
 #define CORE_BLACK__H
 
+#include <map>
+#include <string>
+#include <vector>
+
 namespace black {
 extern std::vector<std::vector<int>> blocks;
 extern bool turn;

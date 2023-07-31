@@ -19,6 +19,6 @@ void Click_Queue::enqueue(int row_, int col_) {
 
 void Click_Queue::print() {
   printf("Contents:\n");
-  for (int i=0;i<row.size();i++)
+  for (int i = 0; i < row.size(); i++)
     printf("(%d, %d)\n", row[i], col[i]);
 }

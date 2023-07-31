@@ -9,6 +9,7 @@ class King_Piece : public Piece {
 private:
   void filter_king_pos();
   void filter_check_pos();
+
 public:
   bool moved;
   std::vector<std::vector<int>> movelist, protecting_movelist;
@@ -19,8 +20,8 @@ public:
     alive = true;
     row = 7;
     col = 4;
-    y = row*UNIT;
-    x = col*UNIT;
+    y = row * UNIT;
+    x = col * UNIT;
   };
   void update_movelist();
   void move(int row_, int col_);

@@ -10,8 +10,9 @@ void Game_Text::checkmate() {
   text.setFillColor(sf::Color(color[0], color[1], color[2]));
   text.setStyle(sf::Text::Bold | sf::Text::Underlined);
   sf::FloatRect textRect = text.getLocalBounds();
-  text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top  + textRect.height/2.0f);
-  text.setPosition(sf::Vector2f(X_RES/2.0f,Y_RES/2.0f));
+  text.setOrigin(textRect.left + textRect.width / 2.0f,
+                 textRect.top + textRect.height / 2.0f);
+  text.setPosition(sf::Vector2f(X_RES / 2.0f, Y_RES / 2.0f));
   window.draw(text);
 }
 
@@ -22,7 +23,8 @@ void Game_Text::stalemate() {
   text.setFillColor(sf::Color(color[0], color[1], color[2]));
   text.setStyle(sf::Text::Bold | sf::Text::Underlined);
   sf::FloatRect textRect = text.getLocalBounds();
-  text.setOrigin(textRect.left + textRect.width/2.0f, textRect.top  + textRect.height/2.0f);
-  text.setPosition(sf::Vector2f(X_RES/2.0f,Y_RES/2.0f));
+  text.setOrigin(textRect.left + textRect.width / 2.0f,
+                 textRect.top + textRect.height / 2.0f);
+  text.setPosition(sf::Vector2f(X_RES / 2.0f, Y_RES / 2.0f));
   window.draw(text);
 }

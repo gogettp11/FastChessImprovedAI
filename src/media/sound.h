@@ -7,10 +7,9 @@ class Game_Sound {
 private:
   sf::SoundBuffer buffer;
   sf::Sound sound;
+
 public:
-  Game_Sound() {
-    sound.setBuffer(buffer);
-  };
+  Game_Sound() { sound.setBuffer(buffer); };
   void check();
   void kill();
   void error();

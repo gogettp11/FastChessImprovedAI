@@ -1,15 +1,15 @@
+#include "../white/king.h"
+#include "../../board.h"
 #include "../../common/config.h"
 #include "../../common/util.h"
-#include "../../board.h"
+#include "../black_.h"
 #include "../white/bishop.h"
 #include "../white/knight.h"
 #include "../white/pawn.h"
-#include "../white/rook.h"
 #include "../white/queen.h"
-#include "../white/king.h"
-#include "king.h"
+#include "../white/rook.h"
 #include "../white_.h"
-#include "../black_.h"
+#include "king.h"
 
 namespace black {
 
@@ -18,17 +18,11 @@ void King_Piece::update_movelist() {
     return;
   movelist.clear();
   const std::vector<std::vector<int>> pos = {
-    {row - 1, col - 1},
-    {row - 1, col},
-    {row - 1, col + 1},
-    {row, col - 1},
-    {row, col},
-    {row, col + 1},
-    {row + 1, col - 1},
-    {row + 1, col},
-    {row + 1, col + 1},
+      {row - 1, col - 1}, {row - 1, col}, {row - 1, col + 1},
+      {row, col - 1},     {row, col},     {row, col + 1},
+      {row + 1, col - 1}, {row + 1, col}, {row + 1, col + 1},
   };
-  for (int k=0;k<pos.size();k++) {
+  for (int k = 0; k < pos.size(); k++) {
     if (pos[k][0] >= 0 && pos[k][0] < 8 && pos[k][1] >= 0 && pos[k][1] < 8) {
       if (!blocks[pos[k][0]][pos[k][1]])
         movelist.push_back({pos[k][0], pos[k][1]});
@@ -39,14 +33,14 @@ void King_Piece::update_movelist() {
 }
 
 void King_Piece::filter_check_pos() {
-  for (int i=0;i<white::num_queens;i++) {
+  for (int i = 0; i < white::num_queens; i++) {
     filter2(movelist, white::queen.movelist[i]);
     filter2(movelist, white::queen.protecting_movelist[i]);
   }
-  for (int i=0;i<8;i++) {
+  for (int i = 0; i < 8; i++) {
     filter2(movelist, white::pawn.hit_movelist[i]);
   }
-  for (int i=0;i<2;i++) {
+  for (int i = 0; i < 2; i++) {
     filter2(movelist, white::bishop.movelist[i]);
     filter2(movelist, white::bishop.protecting_movelist[i]);
     filter2(movelist, white::knight.movelist[i]);
@@ -58,11 +52,15 @@ void King_Piece::filter_check_pos() {
 
 void King_Piece::filter_king_pos() {
   const std::vector<std::vector<int>> opposite_pos = {
-    {white::king.row - 1, white::king.col - 1}, {white::king.row - 1, white::king.col}, 
-    {white::king.row - 1, white::king.col + 1}, {white::king.row, white::king.col - 1}, 
-    {white::king.row, white::king.col}, {white::king.row, white::king.col + 1}, 
-    {white::king.row + 1, white::king.col - 1}, {white::king.row + 1, white::king.col}, 
-    {white::king.row + 1, white::king.col + 1}};
+      {white::king.row - 1, white::king.col - 1},
+      {white::king.row - 1, white::king.col},
+      {white::king.row - 1, white::king.col + 1},
+      {white::king.row, white::king.col - 1},
+      {white::king.row, white::king.col},
+      {white::king.row, white::king.col + 1},
+      {white::king.row + 1, white::king.col - 1},
+      {white::king.row + 1, white::king.col},
+      {white::king.row + 1, white::king.col + 1}};
   filter2(movelist, opposite_pos);
 }
 
@@ -72,8 +70,8 @@ void King_Piece::move(int row_, int col_) {
   blocks[row_][col_] = 1;
   row = row_;
   col = col_;
-  x = col*UNIT;
-  y = row*UNIT;
+  x = col * UNIT;
+  y = row * UNIT;
 }
 
 void King_Piece::show() {

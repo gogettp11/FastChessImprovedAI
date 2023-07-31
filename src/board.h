@@ -1,6 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include <string>
 #include <vector>
 
 class Game_Board {
@@ -37,9 +38,10 @@ public:
   void draw_board();
   std::vector<int> get_coords(int x, int y);
   void select(int row, int col);
+
 private:
-  void drawRect(int* color, int x, int y, int width, int height);
-  };
+  void drawRect(int *color, int x, int y, int width, int height);
+};
 
 extern Game_Board board;
 

@@ -6,7 +6,7 @@ private:
 public:
   std::vector<int> row = {};
   std::vector<int> col = {};
-  Click_Queue() {};
+  Click_Queue(){};
   void enqueue(int row_, int col_);
   void print();
   void clear();
