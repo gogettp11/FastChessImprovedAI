@@ -2,9 +2,17 @@
 #define BOARD_H
 
 #include <string>
+#include <tuple>
 #include <vector>
 
+using colours = std::tuple<int, int, int>;
+
 class Game_Board {
+  // TODO: if needed create file with custom data types and move it to file
+  colours brown = std::make_tuple(92, 48, 17);
+  colours white = std::make_tuple(180, 180, 180);
+  colours light_brown = std::make_tuple(173, 199, 137);
+
 public:
   int total_moves;
   int pieces_paddingx, pieces_paddingy;
@@ -40,7 +48,7 @@ public:
   void select(int row, int col);
 
 private:
-  void drawRect(int *color, int x, int y, int width, int height);
+  void drawRect(colours &color, int x, int y, int width, int height);
 };
 
 extern Game_Board board;

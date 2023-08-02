@@ -1,9 +1,9 @@
 #ifndef CORE_PIECE_H
 #define CORE_PIECE_H
 
+#include "../common/config.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
-#include "../common/config.h"
 
 // The abstract interface for all piece classes.
 class Piece {

@@ -1,5 +1,3 @@
-#include <assert.h>
-
 #include "board.h"
 #include "common/config.h"
 #include "common/util.h"
@@ -19,6 +17,8 @@
 #include "core/white/rook.h"
 #include "core/white_.h"
 #include "media/text.h"
+#include <assert.h>
+#include <tuple>
 
 void Game_Board::pop() {
   int last = total_moves - 1;
@@ -194,8 +194,6 @@ void Game_Board::play() {
 }
 
 void Game_Board::draw_board() {
-  int brown[3] = {92, 48, 17};
-  int white[3] = {180, 180, 180};
   int x = 0;
   int y = 0;
   bool outer = true;
@@ -227,17 +225,17 @@ std::vector<int> Game_Board::get_coords(const int x, const int y) {
 void Game_Board::select(const int row, const int col) {
   if (row < 0 || row > 7 || col > 7 || col < 0)
     return;
-  int color[3] = {173, 199, 137};
   int x = col * UNIT;
   int y = row * UNIT;
-  drawRect(color, x, y, UNIT, UNIT);
+  drawRect(light_brown, x, y, UNIT, UNIT);
 }
 
 // Draw a rectangle at (x, y) with 'width' and 'height'
-void Game_Board::drawRect(int *color, int x, int y, int width, int height) {
+void Game_Board::drawRect(colours &color, int x, int y, int width, int height) {
   sf::RectangleShape rectangle(sf::Vector2f(width, height));
   rectangle.setPosition(x, y);
-  rectangle.setFillColor(sf::Color(color[0], color[1], color[2]));
+  rectangle.setFillColor(
+      sf::Color(std::get<0>(color), std::get<1>(color), std::get<2>(color)));
   window.draw(rectangle);
 }
 
