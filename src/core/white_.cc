@@ -678,6 +678,11 @@ void kill(bool is_undo, std::string piece, int row, int col) {
 
 // show legal moves of selected piece
 void show_legal_moves() {
+  if(!(white::turn && board.clicked_coords.first != -1 &&
+        board.clicked_coords.second != -1))
+      return;
+  if(!(white::blocks[board.clicked_coords.first][board.clicked_coords.second]))
+    return;
   const std::string selected_piece = last_clicked_piece;
   if (selected_piece == "")
     return;

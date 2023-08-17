@@ -17,7 +17,7 @@ void King_Piece::update_movelist() {
   if (!alive)
     return;
   movelist.clear();
-  const std::vector<std::vector<int>> pos = {
+  static const std::vector<std::vector<int>> pos = {
       {row - 1, col - 1}, {row - 1, col}, {row - 1, col + 1},
       {row, col - 1},     {row, col},     {row, col + 1},
       {row + 1, col - 1}, {row + 1, col}, {row + 1, col + 1},

@@ -25,29 +25,12 @@ int main() {
     processor.handleEvents();
     window.clear();
     board.draw_board();
-    board.select(board.selected_row, board.selected_col);
     black::show();
     white::show();
-    if (white::turn && board.clicked_coords[0] != -1 &&
-        board.clicked_coords[1] != -1)
-      if (white::blocks[board.clicked_coords[0]][board.clicked_coords[1]])
-        white::show_legal_moves();
-#if !defined(IS_BLACK_AI)
-    if (black::turn && board.clicked_coords[0] != -1 &&
-        board.clicked_coords[1] != -1)
-      if (black::blocks[board.clicked_coords[0]][board.clicked_coords[1]])
-        black::show_legal_moves();
-#endif
+    white::show_legal_moves();
     board.check_end();
     window.display();
-#ifdef SCREENSHOTS_ON
-    white::check_capture_screen();
-    black::check_capture_screen();
-#endif
-#ifdef IS_BLACK_AI
-    if (black::turn && !board.checkmate && !board.stalemate)
-      black::ai::gen_move();
-#endif
+    black::ai::gen_move();
     window.display();
   }
   return 0;

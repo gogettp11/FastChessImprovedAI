@@ -22,7 +22,7 @@ public:
   int screenshot_num;
   std::string clicked_piece;
   int selected_row, selected_col;
-  std::vector<int> clicked_coords;
+  std::pair<int, int> clicked_coords;
   Game_Board() {
     clicked_coords = {-1, -1};
     clicked_piece = "";

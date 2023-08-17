@@ -90,6 +90,8 @@ static const double minimax(const int &n, double alpha, double beta,
 } // namespace
 
 void gen_move() {
+  if(!(black::turn && !board.checkmate && !board.stalemate))
+    return;
   print("Generating move...");
 #ifdef DEBUGAI
   log << "Generating move..." << std::endl;

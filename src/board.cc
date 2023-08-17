@@ -213,21 +213,17 @@ void Game_Board::draw_board() {
     y += UNIT;
     x = 0;
   }
+  if (selected_row < 0 || selected_row > 7 || selected_col > 7 || selected_col < 0)
+    return;
+  x = selected_col * UNIT;
+  y = selected_row * UNIT;
+  drawRect(light_brown, x, y, UNIT, UNIT);
 }
 
 // Return (row, col) of pixel coords (x, y)
 std::vector<int> Game_Board::get_coords(const int x, const int y) {
   if (x >= 0 && y >= 0 && x <= X_RES && y <= Y_RES)
     return {x / UNIT, y / UNIT};
-}
-
-// select (row, col) by clicking on the board
-void Game_Board::select(const int row, const int col) {
-  if (row < 0 || row > 7 || col > 7 || col < 0)
-    return;
-  int x = col * UNIT;
-  int y = row * UNIT;
-  drawRect(light_brown, x, y, UNIT, UNIT);
 }
 
 // Draw a rectangle at (x, y) with 'width' and 'height'
